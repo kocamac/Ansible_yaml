@@ -1,0 +1,85 @@
+---
+
+- name: Create VM Instance
+  hosts: localhost
+  connection: local
+  gather_facts: false
+
+
+  tasks:
+
+    - name: Check if all variables have been defined
+      fail:
+        msg: "{{ item }} is not defined"
+      when: "{{ item }} is not defined"
+      with_items:
+        - datacenter
+        - cluster
+        - folder
+        - vmname
+        - datastore
+        - vlan_name
+        - template
+        - ip
+        - netmask
+        - gateway
+        - dns1
+        - dns2
+        - template
+        - vm_password
+        - fqdn_domain
+        - domain_join_account
+        - domain_join_password
+
+
+    - name: Create a VM from a template
+      vmware_guest:
+        hostname: '{{ lookup("env", "VMWARE_HOST") }}'
+        username: '{{ lookup("env", "VMWARE_USER") }}'
+        password: '{{ lookup("env", "VMWARE_PASSWORD") }}'
+        datacenter: "{{ datacenter }}"
+        cluster: "{{ cluster }}"
+        folder: "{{ folder }}"
+        validate_certs: no
+        name: "{{ vmname }}"
+        template: "{{ template }}"
+#        wait_for_ip_address: no
+        datastore: "{{ datastore }}"
+#        - name: Add NIC to VM
+#          ovirt_nic:
+#          state: present
+#          vm: "{{ vmname }}"
+#          name: "{{ vlan_name }}"
+#          interface: vmxnet3
+#         mac_address: 00:1a:4a:16:01:56
+#          profile: ovirtmgmt
+#          network: ovirtmgmt
+        state: poweredon
+        networks:
+        - name: "{{ vlan_name }}"
+          device_type: vmxnet3
+          start_connected: yes
+          ip: '{{ ip }}'
+          netmask: "{{ netmask }}"
+          gateway: "{{ gateway }}"
+          dns_servers:
+           - "{{dns1}}"
+           - "{{dns2}}"
+          wait_for_ip_address: yes
+
+        customization:
+          autologon: yes
+          hostname: "{{ vmname }}"
+          password: "{{ vm_password }}"
+          domainadmin: "{{ domain_join_account }}"
+          domainadminpassword: "{{ domain_join_password }}"
+          joindomain: "{{ fqdn_domain }}"
+          runonce:
+          - C:\Windows\System32\cmd.exe /c "C:\Ansible_Workaround\domain_group.cmd"
+
+      register: deploy_vm
+      ignore_errors: yes
+
+    - name: Result of Virtual machine
+      debug:
+        var: deploy_vm
