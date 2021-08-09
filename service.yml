@@ -1,0 +1,14 @@
+---
+- hosts: win 
+
+  tasks: 
+
+   - name: Stop service Printer
+
+     win_service:
+
+       name: Spooler
+
+       state: stopped
+
+       start_mode: disabled
