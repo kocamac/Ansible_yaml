@@ -4,7 +4,7 @@
   tasks:
   - name: Copy File
     win_copy:
-      src: \\192.168.205.175\DCSWRepository\localsetup\
+      src: '\\192.168.205.175\DCSWRepository\localsetup\'
       dest: C:\Temp\
       remote_src: yes
       become: yes
@@ -14,14 +14,14 @@
    
   - name: Install_DesktopCent
     win_package:
-      path: "c:\Temp\DesktopCentralAgent.msi"
+      path: 'C:\Temp\DesktopCentralAgent.msi'
       arguments:
-      - TRANSFORMS=c:\Temp\DesktopCentralAgent.mst
+      - TRANSFORMS=C:\Temp\DesktopCentralAgent.mst
       - ENABLESILENT=yes
       - REBOOT=ReallySuppress
       - INSTALLSOURCE=Manual
-      - SERVER_ROOT_CRT="c:\Temp\DMRootCA-Server.crt"
-      - DS_ROOT_CRT="c:\Temp\DMRootCA.crt"
+      - SERVER_ROOT_CRT="C:\Temp\DMRootCA-Server.crt"
+      - DS_ROOT_CRT="C:\Temp\DMRootCA.crt"
       - /lv C:\Temp\Agentinstalllog.txt
       state: present
       
