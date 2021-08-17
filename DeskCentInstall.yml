@@ -7,6 +7,10 @@
       src: \\192.168.205.175\DCSWRepository\localsetup\
       dest: C:\Temp\
       remote_src: yes
+      become: yes
+      become_method: runas
+      become_user: "{{ ansible_user }}"
+      become_password: "{{ ansible_password }}
    
   - name: Install_DesktopCent
     win_package:
