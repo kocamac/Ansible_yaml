@@ -4,5 +4,5 @@
   tasks:
 
    - name: Uninstall DeskCent
-       community.windows.win_psexec:
+     community.windows.win_psexec:
        command: C:\Program Files (x86)\DesktopCentral_Agent\Updates\DesktopCentralAgent.msi /uninstall /quiet
