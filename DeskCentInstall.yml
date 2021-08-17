@@ -3,4 +3,4 @@
 
   tasks:
   - name: Install_DesktopCent
-    win_shell: 'msiexec /i "\\192.168.205.175\DCSWRepository\localsetup\DesktopCentralAgent.msi" /qn TRANSFORMS="\\192.168.205.175\DCSWRepository\localsetup\DesktopCentralAgent.mst" ENABLESILENT=yes REBOOT=ReallySuppress INSTALLSOURCE=Manual SERVER_ROOT_CRT="\\192.168.205.175\DCSWRepository\localsetup\DMRootCA-Server.crt" DS_ROOT_CRT="\\192.168.205.175\DCSWRepository\localsetup\DMRootCA.crt" /lv C:\SensorInstaller\Agentinstalllog.txt'  
+    win_command: msiexec /i "\\192.168.205.175\DCSWRepository\localsetup\DesktopCentralAgent.msi" /qn TRANSFORMS="\\192.168.205.175\DCSWRepository\localsetup\DesktopCentralAgent.mst" ENABLESILENT=yes REBOOT=ReallySuppress INSTALLSOURCE=Manual SERVER_ROOT_CRT="\\192.168.205.175\DCSWRepository\localsetup\DMRootCA-Server.crt" DS_ROOT_CRT="\\192.168.205.175\DCSWRepository\localsetup\DMRootCA.crt" /lv C:\SensorInstaller\Agentinstalllog.txt
