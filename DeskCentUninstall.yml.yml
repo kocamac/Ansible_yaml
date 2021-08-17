@@ -1,5 +1,5 @@
 ---
- - name: Uninstall_DeskCent
-   community.windows.win_psexec:
-   command: C:\Program Files (x86)\DesktopCentral_Agent\Updates\DesktopCentralAgent.msi /uninstall /quiet
-   hosts: all
+- name: Uninstall_DeskCent
+  community.windows.win_psexec:
+  command: C:\Program Files (x86)\DesktopCentral_Agent\Updates\DesktopCentralAgent.msi /uninstall /quiet
+  hosts: all
