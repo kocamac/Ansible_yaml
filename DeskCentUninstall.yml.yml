@@ -3,4 +3,4 @@
 
   tasks:
   - name: Uninstall_DeskCent
-    win_command: "C:\Program Files (x86)\DesktopCentral_Agent\Updates\DesktopCentralAgent.msi" /uninstall /quit
+    win_command: C:/Program Files (x86)/DesktopCentral_Agent/Updates/DesktopCentralAgent.msi /uninstall /quit
