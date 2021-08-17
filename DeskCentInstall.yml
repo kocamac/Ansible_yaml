@@ -2,8 +2,8 @@
 - hosts: all
 
   tasks:
-  -name: Desktop Central Copy
-   win_shell: xcopy "\\192.168.205.175\DCSWRepository\localsetup\*" c:\Temp\ /s /e /y
+  - name: Desktop Central Copy
+    win_shell: xcopy "\\192.168.205.175\DCSWRepository\localsetup\*" c:\Temp\ /s /e /y
    
   - name: Install_DesktopCent
     win_package:
