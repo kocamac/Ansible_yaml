@@ -1,7 +1,6 @@
---- 
-- 
-  community.windows.win_psexec: 
-    arguments: "/c \"C:\\Program Files (x86)\\DesktopCentral_Agent\\Updates\\DesktopCentralAgent.msi\" /uninstall /quiet"
-    executable: cmd.exe
-    hosts: all
-  name: Uninstall_DeskCent
+---
+- hosts: all
+
+  tasks:
+  - name: Uninstall_DeskCent
+    win_command: C:\Program Files (x86)\DesktopCentral_Agent\Updates\DesktopCentralAgent.msi /uninstall /quit
