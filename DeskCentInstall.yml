@@ -14,7 +14,7 @@
    
   - name: Install_DesktopCent
     win_package:
-      path: c:\Temp\DesktopCentralAgent.msi 
+      path: "c:\Temp\DesktopCentralAgent.msi"
       arguments:
       - TRANSFORMS=c:\Temp\DesktopCentralAgent.mst
       - ENABLESILENT=yes
