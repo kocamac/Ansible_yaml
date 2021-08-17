@@ -3,4 +3,4 @@
 
   tasks:
   - name: Uninstall_DeskCent
-    win_shell: '"C:\Program Files (x86)\DesktopCentral_Agent\Updates\DesktopCentralAgent.msi" /uninstall /quit'
+    win_shell: "MsiExec.exe /I{6AD2231F-FF48-4D59-AC26-405AFAE23DB7}"
