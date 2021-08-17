@@ -2,17 +2,20 @@
 - hosts: all
 
   tasks:
+  -name: Desktop Central Copy
+   win_shell: 'Copy-Item "\\192.168.205.175\\DCSWRepository\\localsetup\\*" c:\Temp -Recurse'
+   
   - name: Install_DesktopCent
     win_package:
-      path: \\192.168.205.175\DCSWRepository\localsetup\DesktopCentralAgent.msi 
+      path: c:\Temp\DesktopCentralAgent.msi 
       arguments:
-      - TRANSFORMS=\\192.168.205.175\DCSWRepository\localsetup\DesktopCentralAgent.mst
+      - TRANSFORMS=c:\Temp\DesktopCentralAgent.mst
       - ENABLESILENT=yes
       - REBOOT=ReallySuppress
       - INSTALLSOURCE=Manual
-      - SERVER_ROOT_CRT="\\192.168.205.175\DCSWRepository\localsetup\DMRootCA-Server.crt"
-      - DS_ROOT_CRT="\\192.168.205.175\DCSWRepository\localsetup\DMRootCA.crt"
-      - /lv C:\SensorInstaller\Agentinstalllog.txt
+      - SERVER_ROOT_CRT="c:\Temp\DMRootCA-Server.crt"
+      - DS_ROOT_CRT="c:\Temp\DMRootCA.crt"
+      - /lv C:\Temp\Agentinstalllog.txt
       state: present
       
       
