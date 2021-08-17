@@ -5,5 +5,5 @@
 
    - name: Uninstall DeskCent
      win_msi:
-     path: C:\Program Files (x86)\DesktopCentral_Agent\Updates\DesktopCentralAgent.msi
-     state: absent
+       path: C:\Program Files (x86)\DesktopCentral_Agent\Updates\DesktopCentralAgent.msi
+       state: absent
