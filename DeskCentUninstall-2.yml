@@ -3,6 +3,6 @@
 
   tasks:
   - name: Uninstall_DeskCent
-    ansible.windows.win_command: "MsiExec.exe /x{6AD2231F-FF48-4D59-AC26-405AFAE23DB7} MSIRESTARTMANAGERCONTROL=Disable REBOOT=ReallySuppress /qn"
+    win_command: "MsiExec.exe /x{6AD2231F-FF48-4D59-AC26-405AFAE23DB7} MSIRESTARTMANAGERCONTROL=Disable REBOOT=ReallySuppress /qn"
   - name: Install_DesktopCent
-    ansible.windows.win_command: 'start /wait msiexec /i "\\192.168.205.175\DCSWRepository\localsetup\DesktopCentralAgent.msi" /qn TRANSFORMS="\\192.168.205.175\DCSWRepository\localsetup\DesktopCentralAgent.mst" ENABLESILENT=yes REBOOT=ReallySuppress INSTALLSOURCE=Manual SERVER_ROOT_CRT="\\192.168.205.175\DCSWRepository\localsetup\DMRootCA-Server.crt" DS_ROOT_CRT="\\192.168.205.175\DCSWRepository\localsetup\DMRootCA.crt" /lv C:\SensorInstaller\Agentinstalllog.txt'  
+    win_command: 'start /wait msiexec /i "\\192.168.205.175\DCSWRepository\localsetup\DesktopCentralAgent.msi" /qn TRANSFORMS="\\192.168.205.175\DCSWRepository\localsetup\DesktopCentralAgent.mst" ENABLESILENT=yes REBOOT=ReallySuppress INSTALLSOURCE=Manual SERVER_ROOT_CRT="\\192.168.205.175\DCSWRepository\localsetup\DMRootCA-Server.crt" DS_ROOT_CRT="\\192.168.205.175\DCSWRepository\localsetup\DMRootCA.crt" /lv C:\SensorInstaller\Agentinstalllog.txt'  
