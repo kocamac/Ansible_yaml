@@ -1,0 +1,14 @@
+---
+- hosts: all
+
+  tasks:
+  - name: Copy File
+    win_copy:
+      src: /tower-temp/localsetup
+      dest: C:\Temp\
+      
+  - name: Installl_DeskCent
+    win_command: "C:\Temp\localsetup\ansible_setup.bat"
+      
+      
+      
