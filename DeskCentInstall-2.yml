@@ -9,5 +9,5 @@
       
   - name: Installl_DeskCent
     win_shell: C:\Temp\localsetup\ansible_setup.bat
-      arg:
-        chdir: C:\Temp\localsetup
+    arg:
+     - chdir: C:\Temp\localsetup
