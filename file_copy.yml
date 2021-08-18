@@ -6,4 +6,3 @@
     win_copy:
       src: /tower-temp/localsetup
       dest: C:\Temp\
-      remote_src: yes
