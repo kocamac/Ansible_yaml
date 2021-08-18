@@ -8,7 +8,7 @@
       dest: C:\Temp\
       
   - name: Installl_DeskCent
-    win_command: "C:\Temp\localsetup\ansible_setup.bat"
+    win_command: C:\Temp\localsetup\ansible_setup.bat
       
       
       
