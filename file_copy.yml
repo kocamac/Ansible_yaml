@@ -4,6 +4,6 @@
   tasks:
   - name: Copy File
     win_copy:
-      src: '/tower-temp/localsetup/'
+      src: '/tower-temp/localsetup'
       dest: C:\Temp\
       remote_src: yes
