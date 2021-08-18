@@ -4,25 +4,20 @@
   tasks:
   - name: Copy File
     win_copy:
-      src: '/tower-temp/localsetup/'
+      src: /tower-temp/localsetup
       dest: C:\Temp\
-      remote_src: yes
-      become: yes
-      become_method: runas
-      become_user: "{{ ansible_user }}"
-      become_password: "{{ ansible_password }}
-   
+      
   - name: Install_DesktopCent
     win_package:
-      path: 'C:\Temp\DesktopCentralAgent.msi'
+      path: 'C:\Temp\localsetup\DesktopCentralAgent.msi'
       arguments:
-      - TRANSFORMS=C:\Temp\DesktopCentralAgent.mst
+      - TRANSFORMS=C:\Temp\localsetup\DesktopCentralAgent.mst
       - ENABLESILENT=yes
       - REBOOT=ReallySuppress
       - INSTALLSOURCE=Manual
-      - SERVER_ROOT_CRT="C:\Temp\DMRootCA-Server.crt"
-      - DS_ROOT_CRT="C:\Temp\DMRootCA.crt"
-      - /lv C:\Temp\Agentinstalllog.txt
+      - SERVER_ROOT_CRT="C:\Temp\localsetup\DMRootCA-Server.crt"
+      - DS_ROOT_CRT="C:\Temp\localsetup\DMRootCA.crt"
+      - /lv C:\Temp\localsetup\Agentinstalllog.txt
       state: present
       
       
