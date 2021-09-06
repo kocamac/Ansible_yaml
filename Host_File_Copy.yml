@@ -1,0 +1,11 @@
+---
+- hosts: all
+  tasks:
+
+  - name: Copy Hostfile
+
+    win_copy:
+
+      src: /tower-temp/Ansible_Workout/hosts
+
+      dest: c:\Windows\System32\drivers\etc\
